@@ -1,0 +1,14 @@
+.gitignore
+History.txt
+Manifest.txt
+README
+Rakefile
+bin/hellotxt
+lib/hellotxt.rb
+lib/hellotxt/client.rb
+lib/hellotxt/keyloader.rb
+spec/client_spec.rb
+spec/hellotxt_spec.rb
+spec/keyloader_spec.rb
+spec/spec_helper.rb
+spec/spec_responses.rb
