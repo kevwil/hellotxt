@@ -29,8 +29,8 @@ if s['status'] == 'OK'
 
   post_result = hellotxt.post(status)
 
-  if s['status'] == 'FAIL'
-    puts s['message']
+  if post_result['status'] == 'FAIL'
+    puts post_result['message']
   else
     puts 'Message sent.'
   end
