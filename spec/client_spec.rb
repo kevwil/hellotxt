@@ -5,7 +5,7 @@ describe HelloTxt::Client, "with expected results" do
 
   before(:each) do
     @client = HelloTxt::Client.new('a','b')
-    @params = {'api_key' => 'a', 'user_key' => 'b'}
+    @params = {'app_key' => 'a', 'user_key' => 'b'}
   end
 
   it "should validate keys successfully" do
@@ -71,7 +71,7 @@ end
 describe HelloTxt::Client, "with error messages" do
   before(:each) do
     @client = HelloTxt::Client.new('a','b')
-    @params = {'api_key' => 'a', 'user_key' => 'b'}
+    @params = {'app_key' => 'a', 'user_key' => 'b'}
   end
 
   it "should handle a failed validate cleanly" do

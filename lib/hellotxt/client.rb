@@ -84,7 +84,7 @@ module HelloTxt
     # <tt>parameters</tt>: Optional (depending on the <tt>type</tt>) parameters to be passed along
     # with the request.  The API key and USER key are merged with this on every call.
     def get_response(type, parameters = {})
-      parameters.merge!('api_key' => @api_key, 'user_key' => @user_key)
+      parameters.merge!('app_key' => @api_key, 'user_key' => @user_key)
   		REXML::Document.new(http_request("#{API_URL}/method/#{type}", parameters))
     end
 
