@@ -25,6 +25,8 @@ PROJ.readme_file = 'README'
 PROJ.gem.need_tar = false
 
 PROJ.spec.opts << '--color'
+PROJ.rcov.opts << ['--exclude', 'rcov']
+PROJ.rcov.opts << ['--exclude', 'mocha']
 
 namespace :gem do
   desc 'create a gemspec file to support github gems'
