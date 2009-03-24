@@ -78,6 +78,27 @@ module HelloTxt
   			return status_fail(response)
   		end
   	end
+  	
+  	# Returns a list of 20 status update sent through HelloTxt.
+  	# if successful returns:
+  	#   {'status' => 'OK', 'messages' => [{'id' => 'messageid', 'title' => 'titletext', 'body' => 'bodytext'}, ...]}
+  	# if unsuccessful returns:
+  	#   {'status' => 'FAIL', 'message' => 'message what went wrong'}
+  	def latest
+  	  response = get_response('user.latest')
+  		if response.elements['rsp'].attributes['status'] == 'OK'
+  		  messages = status_ok()
+  		  messages['messages'] = []
+  		  response.elements.each('rsp/messages/message') do |message|
+  		    messages['messages'].push({'id' => message.attributes['id'],
+  		                                'title' => message.elements['title'].text,
+  		                                'body' => message.elements['body'].text})
+		    end
+  			return messages
+  		else
+  			return status_fail(response)
+  		end
+  	end
 
   	private
 

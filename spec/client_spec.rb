@@ -88,6 +88,27 @@ describe HelloTxt::Client, "with expected results" do
     result['status'].should_not be_nil
     result['status'].should eql('OK')
   end
+  
+  it "should retrieve user's 20 latest status messages" do
+    init_user_latest_response
+
+    uri = URI.parse "#{HelloTxt::API_URL}/method/#{@service_type}"
+
+    # mock the http call
+    http_resp = mock('response')
+    http_resp.expects(:body).returns(@response)
+    Net::HTTP.expects(:post_form).with(uri, @params).returns(http_resp)
+
+    # call and verify
+    result = @client.latest
+    result.should_not be_empty
+    result['status'].should_not be_nil
+    result['status'].should eql('OK')
+    result['messages'].should_not be_nil
+    result['messages'].should_not be_empty
+    result['messages'].length.should eql(2)
+    result['messages'].first['body'].should eql('this is a test message')
+  end
 
 end
 
@@ -154,4 +175,21 @@ describe HelloTxt::Client, "with error messages" do
     result['message'].should_not be_nil
   end
 
+  it "should handle a failed user.latest call cleanly" do
+    init_fail_response 'user.latest'
+
+    uri = URI.parse "#{HelloTxt::API_URL}/method/#{@service_type}"
+
+    # mock the http call
+    http_resp = mock('response')
+    http_resp.expects(:body).returns(@response)
+    Net::HTTP.expects(:post_form).with(uri, @params).returns(http_resp)
+
+    # call and verify
+    result = @client.latest
+    result.should_not be_empty
+    result['status'].should_not be_nil
+    result['status'].should eql('FAIL')
+    result['message'].should_not be_nil
+  end
 end
