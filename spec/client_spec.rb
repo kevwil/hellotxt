@@ -29,6 +29,7 @@ describe HelloTxt::Client, "with expected results" do
     init_service_response
 
     uri = URI.parse "#{HelloTxt::API_URL}/method/#{@service_type}"
+    @params.merge!('group' => 'all')
 
     # mock the http call
     http_resp = mock('response')
@@ -44,6 +45,28 @@ describe HelloTxt::Client, "with expected results" do
     result['services'].should_not be_empty
     result['services'].length.should eql(5)
     result['services'].first['name'].should eql('twitter')
+  end
+  
+  it "should list only jaiku in list of 'friend' services" do
+    init_friend_service_response
+    
+    uri = URI.parse "#{HelloTxt::API_URL}/method/#{@service_type}"
+    @params.merge!('group' => 'friend')
+
+    # mock the http call
+    http_resp = mock('response')
+    http_resp.expects(:body).returns(@response)
+    Net::HTTP.expects(:post_form).with(uri, @params).returns(http_resp)
+
+    # call and verify
+    result = @client.user_services('friend')
+    result.should_not be_empty
+    result['status'].should_not be_nil
+    result['status'].should eql('OK')
+    result['services'].should_not be_nil
+    result['services'].should_not be_empty
+    result['services'].length.should eql(1)
+    result['services'].first['name'].should eql('jaiku')
   end
 
   it "should post a message to the service" do
@@ -96,6 +119,7 @@ describe HelloTxt::Client, "with error messages" do
     init_fail_response 'user.services'
 
     uri = URI.parse "#{HelloTxt::API_URL}/method/#{@service_type}"
+    @params.merge!('group' => 'all')
 
     # mock the http call
     http_resp = mock('response')

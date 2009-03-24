@@ -41,7 +41,7 @@ def init_service_response
     <service id="jk" name="jaiku">
       <code>OK38</code>
       <inhome>checked</inhome>
-      <friend>unchecked</friend>
+      <friend>checked</friend>
       <collegue>unchecked</collegue>
     </service>
     <service id="id" name="identica">
@@ -54,6 +54,23 @@ def init_service_response
       <code>s46G</code>
       <inhome>checked</inhome>
       <friend>unchecked</friend>
+      <collegue>unchecked</collegue>
+    </service>
+  </services>
+</rsp>
+EOXML
+end
+
+def init_friend_service_response
+  @service_type = 'user.services'
+  @response = <<EOXML
+  <?xml version="1.0"?>
+<rsp status="OK">
+  <services>
+    <service id="jk" name="jaiku">
+      <code>OK38</code>
+      <inhome>checked</inhome>
+      <friend>checked</friend>
       <collegue>unchecked</collegue>
     </service>
   </services>

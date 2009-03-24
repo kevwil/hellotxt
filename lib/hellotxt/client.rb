@@ -30,12 +30,14 @@ module HelloTxt
   	end
 
   	# Returns a list of services the user has set up through HelloTxt
+  	# Optional arguments:
+  	# group = service group type; either 'inhome', 'friend', 'colleague', 'all'
   	# if successful returns:
     #   {'status' => 'OK', 'services' => [{'id' => 'serviceid', 'name' => 'servicename', 'code' => 'servicecode', 'inhome' => 'checked', 'friend' => 'checked', 'collegue' => 'checked'}, ...]}
   	# if unsuccessful returns:
   	#   {'status' => 'FAIL', 'message' => 'message what went wrong'}
-  	def user_services
-  	  response = get_response('user.services')
+  	def user_services(group = 'all')
+  	  response = get_response('user.services', 'group' => group)
   		if response.elements['rsp'].attributes['status'] == 'OK'
   			services = status_ok()
   			services['services'] = []
