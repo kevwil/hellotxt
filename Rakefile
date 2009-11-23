@@ -15,8 +15,7 @@ Bones {
   authors ['Kevin Williams']
   email ['kevwil@gmail.com']
   url 'http://kevwil.github.com/hellotxt'
-  version ENV['VERSION'] || HelloTxt::VERSION
-  # rubyforge.name 'hellotxt'
+  version ENV['VERSION'] || HelloTxt::VERSION::STRING
   readme_file 'README'
   ignore_file '.gitignore'
   gem.need_tar false
@@ -24,9 +23,9 @@ Bones {
   depend_on 'rspec', :development => true
   depend_on 'mocha', :development => true
   ruby_opts << '-Ilib' << '-rubygems'
-  #spec_opts << '--color'# << '--format html:./spec_out.html'
-  #rcov_opts << ['--exclude', 'rcov']
-  #rcov_opts << ['--exclude', 'mocha']
+  spec.opts << '--color'# << '--format html:./spec_out.html'
+  rcov.opts << ['--exclude', 'rcov']
+  rcov.opts << ['--exclude', 'mocha']
   # enable_sudo
 }
 

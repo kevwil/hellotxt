@@ -1,3 +1,10 @@
+== 1.0.3 / 2009-11-22
+
+* maintenance release
+  * update Rakefile for Bones 3.1.0
+  * clean up some typos
+  * clean up bin/hellotxt to not use relative path in require
+
 == 1.0.2 / 2009-03-23
 
 * maintenance release
