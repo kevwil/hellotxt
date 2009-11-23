@@ -1,40 +1,33 @@
-# Look in the tasks/setup.rb file for the various options that can be
-# configured in this Rakefile. The .rake files in the tasks directory
-# are where the options are used.
-
 begin
   require 'bones'
-  Bones.setup
 rescue LoadError
-  load 'tasks/setup.rb'
+  abort '### Please install the "bones" gem ###'
 end
 
 ensure_in_path 'lib'
 require 'hellotxt'
 
 task :default => 'spec:run'
+task 'gem:release' => 'spec:run'
 
-PROJ.name = 'hellotxt'
-PROJ.authors = ['Kevin Williams']
-PROJ.email = ['kevwil@gmail.com']
-PROJ.url = 'http://kevwil.github.com/hellotxt'
-PROJ.version = ENV['VERSION'] || HelloTxt::VERSION
-PROJ.rubyforge.name = 'hellotxt'
-PROJ.readme_file = 'README'
-
-PROJ.gem.need_tar = false
-
-PROJ.spec.opts << '--color'
-PROJ.rcov.opts << ['--exclude', 'rcov']
-PROJ.rcov.opts << ['--exclude', 'mocha']
-
-namespace :gem do
-  desc 'create a gemspec file to support github gems'
-  task :gemspec => 'gem:prereqs' do
-    File.open("#{PROJ.name}.gemspec", 'w+') do |f|
-      f.write PROJ.gem._spec.to_ruby
-    end
-  end
-end
+Bones {
+  name 'hellotxt'
+  authors ['Kevin Williams']
+  email ['kevwil@gmail.com']
+  url 'http://kevwil.github.com/hellotxt'
+  version ENV['VERSION'] || HelloTxt::VERSION
+  # rubyforge.name 'hellotxt'
+  readme_file 'README'
+  ignore_file '.gitignore'
+  gem.need_tar false
+  depend_on 'bones', :development => true
+  depend_on 'rspec', :development => true
+  depend_on 'mocha', :development => true
+  ruby_opts << '-Ilib' << '-rubygems'
+  #spec_opts << '--color'# << '--format html:./spec_out.html'
+  #rcov_opts << ['--exclude', 'rcov']
+  #rcov_opts << ['--exclude', 'mocha']
+  # enable_sudo
+}
 
 # EOF
