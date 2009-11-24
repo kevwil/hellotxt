@@ -1,0 +1,6 @@
+require 'autotest/growl'
+require 'redgreen'
+require 'autotest/timestamp'
+Autotest.add_hook :initialize do |at|
+  %w{.svn .hg .git vendor}.each {|exception| at.add_exception(exception)}
+end
