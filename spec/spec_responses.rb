@@ -30,31 +30,31 @@ def init_service_response
       <code>Ee6n</code>
       <inhome>checked</inhome>
       <friend>unchecked</friend>
-      <collegue>unchecked</collegue>
+      <colleague>unchecked</colleague>
     </service>
     <service id="fb" name="facebook">
       <code>XW7G</code>
       <inhome>checked</inhome>
       <friend>false</friend>
-      <collegue>false</collegue>
+      <colleague>false</colleague>
     </service>
     <service id="jk" name="jaiku">
       <code>OK38</code>
       <inhome>checked</inhome>
       <friend>checked</friend>
-      <collegue>unchecked</collegue>
+      <colleague>unchecked</colleague>
     </service>
     <service id="id" name="identica">
       <code>IOZq</code>
       <inhome>checked</inhome>
       <friend>unchecked</friend>
-      <collegue>unchecked</collegue>
+      <colleague>unchecked</colleague>
     </service>
     <service id="rj" name="rejaw">
       <code>s46G</code>
       <inhome>checked</inhome>
       <friend>unchecked</friend>
-      <collegue>unchecked</collegue>
+      <colleague>unchecked</colleague>
     </service>
   </services>
 </rsp>
@@ -71,7 +71,7 @@ def init_friend_service_response
       <code>OK38</code>
       <inhome>checked</inhome>
       <friend>checked</friend>
-      <collegue>unchecked</collegue>
+      <colleague>unchecked</colleague>
     </service>
   </services>
 </rsp>
@@ -88,10 +88,10 @@ def init_user_latest_response
       <title></title>
       <body>this is a test message</body>
     </message>
-  <message id="5678">
-    <title></title>
-    <body>Desperately trying not to be bored</body>
-  </message>
+    <message id="5678">
+      <title></title>
+      <body>Desperately trying not to be bored</body>
+    </message>
   </messages>
 </rsp>
 EOXML

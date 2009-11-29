@@ -1,10 +1,8 @@
 require 'rubygems'
 require 'mocha'
 
-require File.expand_path(
-    File.join(File.dirname(__FILE__), %w[.. lib hellotxt]))
-require File.expand_path(
-        File.join(File.dirname(__FILE__), %w[spec_responses]))
+require File.expand_path(File.join(File.dirname(__FILE__),'/../lib/hellotxt'))
+require 'spec_responses'
 
 Spec::Runner.configure do |config|
   # == Mock Framework

@@ -10,7 +10,7 @@ require 'hellotxt'
 task :default => 'spec:run'
 task 'gem:release' => 'spec:run'
 
-Bones {
+Bones do
   name 'hellotxt'
   authors ['Kevin Williams']
   email ['kevwil@gmail.com']
@@ -26,7 +26,8 @@ Bones {
   spec.opts << '--color'# << '--format html:./spec_out.html'
   rcov.opts << ['--exclude', 'rcov']
   rcov.opts << ['--exclude', 'mocha']
-  # enable_sudo
-}
+  use_gmail
+  enable_sudo
+end
 
 # EOF
