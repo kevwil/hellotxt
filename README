@@ -30,7 +30,7 @@ Everything after the 'hellotxt' command is what will be posted to the service. Y
 If your keys have not been stored, it will ask for them.  These keys will be saved
 in a YAML file in your home directory and you won't be asked for them again.
 
-You can obtain your API key here: http://hellotxt.com/api/doc
+You can obtain your API key and user key here: http://hellotxt.com/developers/applications
 
 Library usage:
 
@@ -63,6 +63,11 @@ Ruby!
   # From Github...
   $ sudo gem sources -a http://gems.github.com (only need to do this once)
   $ sudo gem install kevwil-hellotxt
+  
+== RUN TESTS:
+
+  $ sudo gem install bones bones-rspec bones-rcov
+  $ rake
 
 == LICENSE:
 
