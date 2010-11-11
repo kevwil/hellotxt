@@ -1,3 +1,10 @@
+== 1.0.4 / 2010-11-11
+
+* minor tweak
+  * update Rakefile for Bones 3.5.1
+  * cleanup README instructions
+  * remove references to gems.github.com
+
 == 1.0.3 / 2009-11-22
 
 * maintenance release
