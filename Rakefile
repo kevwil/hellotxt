@@ -17,6 +17,7 @@ Bones do
   url 'https://kevwil.github.io/hellotxt'
   version ENV['VERSION'] || HelloTxt::VERSION::STRING
   readme_file 'README'
+  license 'MIT'
   ignore_file '.gitignore'
   gem.need_tar false
   depend_on 'simplecov', :development => true
