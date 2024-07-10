@@ -17,7 +17,7 @@ describe HelloTxt::Keyloader do
 
   it "should use keys from yaml file if found" do
     loader = HelloTxt::Keyloader.new(@tmp_path)
-    loader.has_keys?.should be_true
+    loader.has_keys?.should be true
     loader.keyfile.should eql(@tmp_path)
     loader.api_key.should eql(@keydata['api_key'])
     loader.user_key.should eql(@keydata['user_key'])
@@ -28,16 +28,16 @@ describe HelloTxt::Keyloader do
     loader.user_key = 'baz'
     loader.save
 
-    loader.has_keys?.should be_true
-    File.exist?(loader.keyfile).should be_true
-    File.readable?(loader.keyfile).should be_true
+    loader.has_keys?.should be true
+    File.exist?(loader.keyfile).should be true
+    File.readable?(loader.keyfile).should be true
     YAML::load_file(loader.keyfile)['user_key'].should eql('baz')
   end
 
   it "should behave if keys cannot be loaded" do
     loader = HelloTxt::Keyloader.new('/tmp/nofile')
-    loader.has_keys?.should be_false
-    loader.api_key.should be_nil
-    loader.user_key.should be_nil
+    loader.has_keys?.should be false
+    loader.api_key.should be nil
+    loader.user_key.should be nil
   end
 end
