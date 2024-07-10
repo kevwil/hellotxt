@@ -1,16 +1,16 @@
-HelloTxt Ruby Client/Library
+# HelloTxt Ruby Client/Library
 
 == Authors
 
-* Kevin Williams (https://kevwil.github.io/)
+* Kevin Williams (<https://kevwil.github.io/>)
 
 == CODE:
 
-https://github.com/kevwil/hellotxt/
+<https://github.com/kevwil/hellotxt/>
 
 == DESCRIPTION:
 
-HelloTxt (http://hellotxt.com) is a simple service that makes updating your social networks a snap, and this is it's Ruby library.
+HelloTxt (<http://hellotxt.com>) is a simple service that makes updating your social networks a snap, and this is it's Ruby library.
 
 == FEATURES/PROBLEMS:
 
@@ -30,22 +30,26 @@ Everything after the 'hellotxt' command is what will be posted to the service. Y
 If your keys have not been stored, it will ask for them.  These keys will be saved
 in a YAML file in your home directory and you won't be asked for them again.
 
-You can obtain your API key and user key here: http://hellotxt.com/developers/applications
+You can obtain your API key and user key here: <http://hellotxt.com/developers/applications>
 
 Library usage:
 
-  # Require the library and initialize it.
+## Require the library and initialize it
+
   require 'hellotxt'
   hellotxt = ::HelloTxt::Client.new('api_key', 'user_key')
 
-  # Ensure proper API and USER keys.
+## Ensure proper API and USER keys
+
   hellotxt.validate['status']
-  # => 'OK' if success, otherwise 'FAIL'
 
-  # Posting to all services.
+## => 'OK' if success, otherwise 'FAIL'
+
+## Posting to all services
+
   hellotxt.post('The Dark Knight was amazing.')
-  # => {'status' => 'OK'} if success, otherwise 'FAIL'
 
+## => {'status' => 'OK'} if success, otherwise 'FAIL'
 
 Check the source comments for more details.
 
@@ -57,36 +61,11 @@ Ruby!
 
   $ (sudo) gem install hellotxt
 
-  (you really should try RVM if you still need sudo to manage your gems. http://rvm.beginrescueend.com/)
+  (you really should try RVM if you still need sudo to manage your gems. <https://rvm.io/>)
 
 == RUN TESTS:
 
   $ (sudo) gem install bones-extras
   $ rake
 
-  (you really should try RVM if you still need sudo to manage your gems. http://rvm.beginrescueend.com/)
-
-== LICENSE:
-
-(The MIT License)
-
-Copyright (c) 2008-2010 Kevin Williams
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  (you really should try RVM if you still need sudo to manage your gems. <https://rvm.io/>)
